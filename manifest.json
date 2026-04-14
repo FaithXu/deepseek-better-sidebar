@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "DeepSeek 会话导航",
+  "version": "2.1",
+  "description": "在 DeepSeek 会话中显示可展开的问题历史面板，方便回顾和跳转",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.deepseek.com/*",
+        "https://*.deepseek.com/*",
+        "https://deepseek.com/chat/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://chat.deepseek.com/*",
+        "https://*.deepseek.com/*"
+      ],
+      "js": ["sidebar-collapse.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DeepSeek 会话导航"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "mac": "Alt+Shift+G",
+        "windows": "Alt+Shift+G",
+        "linux": "Alt+Shift+G"
+      },
+      "description": "切换问题历史面板"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+/**
+ * DeepSeek 会话导航 v2 - 样式
+ * 固定在页面最上方，点击展开显示完整历史问题列表
+ */
+
+/* ========== DeepSeek 侧边栏宽度 ========== */
+:root {
+  --sider-width: 300px !important;
+}
+
+/* ========== 会话导航面板 ========== */
+#ds-nav-panel-v2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 12px 16px 0;
+}
+
+/* ========== 切换按钮 ========== */
+.ds-nav-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 16px;
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.ds-nav-toggle:hover {
+  border-color: #6366f1;
+  background: #f9faff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.ds-nav-toggle:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.ds-nav-toggle .ds-nav-arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: #9ca3af;
+  transition: transform 0.2s;
+}
+
+/* ========== 问题列表 ========== */
+.ds-nav-list {
+  margin-top: 6px;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 380px;
+  overflow-y: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.ds-nav-list::-webkit-scrollbar { width: 6px; }
+.ds-nav-list::-webkit-scrollbar-track { background: transparent; }
+.ds-nav-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+.ds-nav-list::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ========== 单条问题 ========== */
+.ds-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.15s;
+}
+
+.ds-nav-item:last-child { border-bottom: none; }
+.ds-nav-item:hover { background: #f5f3ff; }
+.ds-nav-item:active { background: #ede9fe; }
+
+.ds-nav-num {
+  flex-shrink: 0;
+  min-width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: #ede9fe;
+  color: #6366f1;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ds-nav-text {
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.ds-nav-time {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.ds-nav-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+  #ds-nav-panel-v2 { padding: 10px 10px 0; }
+  .ds-nav-item { padding: 9px 12px; gap: 8px; }
+  .ds-nav-text { font-size: 13px; }
+  .ds-nav-time { font-size: 10px; }
+}
